@@ -31,7 +31,7 @@
   <artifactId>tomcat-embed-jasper</artifactId>
 </dependency>
 
-<!--  JSLT -->	
+<!--  JSLT -->
 <dependency>
   <groupId>javax.servlet</groupId>
   <artifactId>jstl</artifactId>
