@@ -6,10 +6,12 @@ import java.util.function.Supplier;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +33,7 @@ public class DummyControllerTest {
 																																	//Update
 	@Transactional //save를 호출하지 않고 이놈을 사용
 	@PutMapping("/dummy/user/{id}")
-	public User updateUser(@PathVariable int id,  @RequestBody User requestUser) {
+	public User updateUser(@PathVariable int id,  @RequestBody User requestUser) { // @RequestBody 을 사용 Json 데이터를 요청 -> Java Object로 변환
 		
 		User user = userRepository.findById(id).orElseThrow(()->{
 			return new IllegalArgumentException("수정 실패");
@@ -40,15 +42,25 @@ public class DummyControllerTest {
 		user.setEmail(requestUser.getEmail());
 		
 		//userRepository.save(user); //디비와 연동된것은 userRepository임, 그래서 이놈을 조지면 디비에 연동
-		return null;
+		return user;
+	}	
+	
+	
+																													//Delete
+	@DeleteMapping("dummy/user/{id}")
+	public String delete(@PathVariable int id) {
+		try{
+			userRepository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {	
+			return "삭제에 실패하였습니다. 해당 id는 데이터베이스에 없습니다";
+		}
+		
+		return "삭제되었습니다. id : " + id;
 	}
 	
 	
 	
-	
-	
-	
-																												//Select
+																													//Select
 	
 	// http://localhost:8000/blog/dummy/user/1
 	@GetMapping("/dummy/user")                            //전체를 select
@@ -81,6 +93,7 @@ public class DummyControllerTest {
 		return user;
 	}
 	
+																																//Insert
 	@PostMapping("/dummy/join")
 	public String join(User user) {
 		System.out.println("username : "+user.getUsername());
