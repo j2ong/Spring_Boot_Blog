@@ -3,7 +3,7 @@
 
 
 <div class="container">
-	<form action="/action_page.php">
+	<form">
 		<div class="form-group">
 			<label for="username">Username:</label> <input type="text" class="form-control" placeholder="Enter username" id="username">
 		</div>
@@ -17,9 +17,9 @@
 			<label class="form-check-label"> <input class="form-check-input" type="checkbox"> Remember me
 			</label>
 		</div>
-		
-		<button type="submit" class="btn btn-primary">로그인</button>
-	</form>
-
+	</form> 
+	<button id="btn-login" class="btn btn-primary">로그인</button>
 </div>
+
+<script src = " /blog/js/user.js"></script> <!--  여기페이지에서 이뤄지는 데이터가 user.js로 가서 로직이 작동한다.-->
 <%@ include file="../Layout/footer.jsp"%>
