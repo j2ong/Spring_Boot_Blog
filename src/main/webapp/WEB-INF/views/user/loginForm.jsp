@@ -21,5 +21,5 @@
 	<button id="btn-login" class="btn btn-primary">로그인</button>
 </div>
 
-<script src = " /blog/js/user.js"></script> <!--  여기페이지에서 이뤄지는 데이터가 user.js로 가서 로직이 작동한다.-->
+<script src = " /js/user.js"></script> <!--  여기페이지에서 이뤄지는 데이터가 user.js로 가서 로직이 작동한다.-->
 <%@ include file="../Layout/footer.jsp"%>
