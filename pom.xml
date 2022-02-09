@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	
+	
 	<dependencies>
 	
 	 <!--시큐리티 태그 라이브러리 -->
@@ -24,6 +26,13 @@
   <artifactId>spring-security-taglibs</artifactId>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.22</version>
+    <scope>provided</scope>
+</dependency>
 
 <!-- JSP 템플릿 엔진 -->
 <dependency>

@@ -19,13 +19,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//@DynamicInsert // insert할때 null 인 필드 제외
+
 @Data									//Getter, Setter
 @NoArgsConstructor						//생성자
 @AllArgsConstructor
 @Builder								//빌더 패턴
 @EntityListeners(AuditingEntityListener.class)
 @Entity			//클래스가 MySql에 테이블 생성 , ORM->JAVA Object -> 테이블로 매핑
-//@DynamicInsert // insert할때 null 인 필드 제외
 public class User {
 	
 	@Id 												// primary key	
@@ -44,7 +45,8 @@ public class User {
 	//@ColumnDefault("'user'")
 	@Enumerated(EnumType.STRING)
 	private RoleType role; 								// 데이터의 도메인 , enum을 쓰는게 좋다 // admin,user	
-	
+
+
 	@CreatedDate
 	private LocalDateTime createDate;					// 시간 자동 입력, CreationTimestamp는 지원해주지 않아 대체함.
 }

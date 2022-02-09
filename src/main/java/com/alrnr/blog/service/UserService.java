@@ -1,4 +1,4 @@
-package com.alrnr.blog.service;
+	package com.alrnr.blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +18,6 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
-	@Transactional(readOnly = true) //Select할때 트랜잭션 시작, 서비스 종료시에 트랜잭션 종료 (정합성)
-	public User 로그인(User user) {
-		return userRepository.findByUsernameAndPassword(user.getUsername(),user.getPassword());                        //save함수는 있지만, login함수는 없다. 따로 만들어줘야함
-	}
+	
+	
 }
