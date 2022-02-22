@@ -28,7 +28,7 @@
 		
 		<!-- JSTL 문법 -->
 		<c:choose>
-			<c:when test="${empty sessionScope.principal }">				<!--  세션이 비어(empty) 있다면 이거하고(로그인 안 되어있다면) -->
+			<c:when test="${empty principal }">				<!--  세션이 비어(empty) 있다면 이거하고(로그인 안 되어있다면) -->
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="/auth/loginForm">Login</a></li>
 				<li class="nav-item"><a class="nav-link" href="/auth/joinForm">Join</a></li>

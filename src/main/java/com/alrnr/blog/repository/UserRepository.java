@@ -1,5 +1,7 @@
 package com.alrnr.blog.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -10,6 +12,8 @@ import com.alrnr.blog.model.User;
 // 쉽게말해, 자바와 데이터베이스를 연동하겠습니다~
 public interface UserRepository extends JpaRepository<User, Integer>{ //User Table의 Primary key는 Integer형이다.
 	
+	// Select * From user Where username = 1?;
+	Optional<User> findByUsername(String username);
 }
 
 	//전통적인 방식 : JPA Naming 전략
